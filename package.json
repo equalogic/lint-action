@@ -64,7 +64,8 @@
 			"jsdoc/tag-lines": "error",
 			"jsdoc/require-description": "error",
 			"jsdoc/require-hyphen-before-param-description": "error",
-			"jsdoc/require-jsdoc": "off"
+			"jsdoc/require-jsdoc": "off",
+			"import/no-unresolved": "off"
 		}
 	},
 	"eslintIgnore": [
