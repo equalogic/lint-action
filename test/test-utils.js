@@ -35,8 +35,7 @@ function joinDoubleBackslash(...paths) {
  */
 function normalizePaths(str, path) {
 	const pathToSearch = realpathSync(path);
-	const pathToSearchEscaped = pathToSearch.replace(/[-/\\^$*+?.()|[\]{}]/g, "\\$&");
-	return str.replace(new RegExp(pathToSearchEscaped, "g"), path);
+	return str.replaceAll(pathToSearch, path);
 }
 
 /**
