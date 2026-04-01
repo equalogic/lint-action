@@ -1,5 +1,5 @@
 const { mkdtempSync, realpathSync } = require("fs");
-const { join } = require("path");
+const { join, basename } = require("path");
 
 const DATE_REGEX = /\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}.\d+ ?[+-]\d{2}:?\d{2}/g;
 const TEST_DATE = "2019-01-01 00:00:00.000000 +0000";
@@ -34,8 +34,7 @@ function joinDoubleBackslash(...paths) {
  * @returns {string} - Normalized paths
  */
 function normalizePaths(str, path) {
-	const pathToSearch = realpathSync(path);
-	return str.replaceAll(pathToSearch, path);
+	return str.replaceAll(path, basename(path)).replaceAll(realpathSync(path), basename(path));
 }
 
 /**
